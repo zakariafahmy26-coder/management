@@ -1,0 +1,227 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "UserProfile",
+      "description": "User account information and role permissions for fleet management",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "companyId": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 256 },
+        "displayName": { "type": "string", "maxLength": 256 },
+        "name": { "type": "string", "maxLength": 256 },
+        "username": { "type": "string", "maxLength": 128 },
+        "phone": { "type": "string", "maxLength": 64 },
+        "photoURL": { "type": "string", "maxLength": 1024 },
+        "role": { "type": "string" },
+        "status": { "type": "string", "enum": ["active", "pending", "suspended"] },
+        "department": { "type": "string", "maxLength": 128 },
+        "assignedBranch": { "type": "string", "maxLength": 128 },
+        "assignedDriverId": { "type": "string", "maxLength": 128 },
+        "customPermissions": { "type": "array", "items": { "type": "string" } },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["uid", "email", "role", "status"]
+    },
+    "company": {
+      "title": "Company",
+      "description": "Enterprise tenant organisation entity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 256 },
+        "nameAr": { "type": "string", "maxLength": 256 },
+        "code": { "type": "string", "maxLength": 64 },
+        "status": { "type": "string", "maxLength": 32 }
+      },
+      "required": ["id", "name"]
+    },
+    "vehicle": {
+      "title": "Vehicle",
+      "description": "Factory fleet vehicle record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "companyId": { "type": "string", "maxLength": 128 },
+        "plateNumber": { "type": "string", "maxLength": 64 },
+        "vehicleType": { "type": "string", "maxLength": 64 },
+        "model": { "type": "string", "maxLength": 128 },
+        "year": { "type": "number" },
+        "currentOdometer": { "type": "number" },
+        "fuelType": { "type": "string", "maxLength": 32 },
+        "tankCapacity": { "type": "number" },
+        "status": { "type": "string", "maxLength": 64 },
+        "assignedDriverId": { "type": "string", "maxLength": 128 },
+        "licenseExpiryDate": { "type": "string", "maxLength": 64 },
+        "insuranceExpiryDate": { "type": "string", "maxLength": 64 },
+        "lastOilChangeKm": { "type": "number" },
+        "nextOilChangeKm": { "type": "number" },
+        "notes": { "type": "string", "maxLength": 2048 },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "plateNumber", "status", "currentOdometer"]
+    },
+    "driver": {
+      "title": "Driver",
+      "description": "Factory fleet driver record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "companyId": { "type": "string", "maxLength": 128 },
+        "code": { "type": "string", "maxLength": 64 },
+        "name": { "type": "string", "maxLength": 128 },
+        "phone": { "type": "string", "maxLength": 64 },
+        "nationalId": { "type": "string", "maxLength": 64 },
+        "licenseDegree": { "type": "string", "maxLength": 64 },
+        "licenseNumber": { "type": "string", "maxLength": 64 },
+        "licenseExpiryDate": { "type": "string", "maxLength": 64 },
+        "regionId": { "type": "string", "maxLength": 128 },
+        "status": { "type": "string", "maxLength": 64 },
+        "assignedVehicleId": { "type": "string", "maxLength": 128 },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "name", "phone", "status"]
+    },
+    "task": {
+      "title": "OperationTask",
+      "description": "Operational task and dispatch order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "companyId": { "type": "string", "maxLength": 128 },
+        "code": { "type": "string", "maxLength": 64 },
+        "title": { "type": "string", "maxLength": 256 },
+        "status": { "type": "string", "maxLength": 64 },
+        "priority": { "type": "string", "maxLength": 32 },
+        "assignedDriverId": { "type": "string", "maxLength": 128 },
+        "assignedVehicleId": { "type": "string", "maxLength": 128 },
+        "scheduledDate": { "type": "string", "maxLength": 64 },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "companyId", "title", "status"]
+    },
+    "automationRule": {
+      "title": "AutomationRule",
+      "description": "Automated operational trigger rule",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "companyId": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 256 },
+        "trigger": { "type": "string", "maxLength": 64 },
+        "enabled": { "type": "boolean" },
+        "executionCount": { "type": "number" },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "companyId", "name", "trigger", "enabled"]
+    },
+    "automationExecution": {
+      "title": "AutomationExecution",
+      "description": "Log of automation engine execution",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "companyId": { "type": "string", "maxLength": 128 },
+        "ruleId": { "type": "string", "maxLength": 128 },
+        "ruleName": { "type": "string", "maxLength": 256 },
+        "trigger": { "type": "string", "maxLength": 64 },
+        "status": { "type": "string", "maxLength": 32 },
+        "details": { "type": "string", "maxLength": 2048 },
+        "retryCount": { "type": "number" },
+        "executionTime": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "companyId", "ruleId", "status"]
+    },
+    "deal": {
+      "title": "Deal",
+      "description": "Sales pipeline deal and RFP opportunity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "companyId": { "type": "string", "maxLength": 128 },
+        "client": { "type": "string", "maxLength": 256 },
+        "amount": { "type": "number" },
+        "stage": { "type": "string", "maxLength": 64 },
+        "owner": { "type": "string", "maxLength": 128 },
+        "ownerEmail": { "type": "string", "maxLength": 256 },
+        "status": { "type": "string", "maxLength": 32 },
+        "category": { "type": "string", "maxLength": 64 },
+        "rfpNumber": { "type": "string", "maxLength": 64 },
+        "contactPerson": { "type": "string", "maxLength": 128 },
+        "contactEmail": { "type": "string", "maxLength": 256 },
+        "contactPhone": { "type": "string", "maxLength": 64 },
+        "expectedCloseDate": { "type": "string", "maxLength": 64 },
+        "actualCloseDate": { "type": "string", "maxLength": 64 },
+        "priority": { "type": "string", "maxLength": 32 },
+        "winProbability": { "type": "number" },
+        "lostReason": { "type": "string", "maxLength": 512 },
+        "notes": { "type": "string", "maxLength": 4096 },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "companyId", "client", "amount", "stage", "owner", "status"]
+    },
+    "dealActivity": {
+      "title": "DealActivity",
+      "description": "Activity log entry for deal interaction or status change",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "companyId": { "type": "string", "maxLength": 128 },
+        "dealId": { "type": "string", "maxLength": 128 },
+        "type": { "type": "string", "maxLength": 32 },
+        "title": { "type": "string", "maxLength": 256 },
+        "description": { "type": "string", "maxLength": 2048 },
+        "userName": { "type": "string", "maxLength": 128 },
+        "userEmail": { "type": "string", "maxLength": 256 },
+        "timestamp": { "type": "string", "maxLength": 64 },
+        "previousValue": { "type": "string", "maxLength": 128 },
+        "newValue": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "dealId", "type", "title", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "userProfile",
+      "description": "Global user account profiles and role mappings"
+    },
+    "/companies/{companyId}": {
+      "schema": "company",
+      "description": "Tenant enterprise profiles"
+    },
+    "/companies/{companyId}/vehicles/{vehicleId}": {
+      "schema": "vehicle",
+      "description": "Company fleet vehicle documents"
+    },
+    "/companies/{companyId}/drivers/{driverId}": {
+      "schema": "driver",
+      "description": "Company fleet drivers"
+    },
+    "/companies/{companyId}/tasks/{taskId}": {
+      "schema": "task",
+      "description": "Company operational dispatch tasks"
+    },
+    "/companies/{companyId}/deals/{dealId}": {
+      "schema": "deal",
+      "description": "Company sales pipeline deals and RFPs"
+    },
+    "/companies/{companyId}/deals/{dealId}/activities/{activityId}": {
+      "schema": "dealActivity",
+      "description": "Audit trail and activity log entries for a deal"
+    },
+    "/companies/{companyId}/automationRules/{ruleId}": {
+      "schema": "automationRule",
+      "description": "Company event automation rules"
+    },
+    "/companies/{companyId}/automationExecutions/{execId}": {
+      "schema": "automationExecution",
+      "description": "Company automation execution logs"
+    },
+    "/companies/{companyId}/settings/{settingId}": {
+      "schema": "companySettings",
+      "description": "Company persistent configuration including SMTP and alerts"
+    }
+  }
+}

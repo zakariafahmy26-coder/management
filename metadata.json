@@ -1,0 +1,6 @@
+{
+  "name": "إدارة خطوط سير وأسطول سيارات المصنع",
+  "description": "منصة FLEETOPS INTELLIGENCE المتكاملة لإدارة الأسطول، العمليات اللوجستية، ولوحة دعم المبيعات وعروض الأسعار (RFPs) مع تحليلات ومؤشرات الأداء ومساعد الذكاء الاصطناعي.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

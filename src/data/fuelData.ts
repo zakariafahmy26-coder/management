@@ -1,0 +1,138 @@
+import { ExpenseRecord, FuelRecord, RegionItem } from '../types';
+
+export const INITIAL_REGIONS: RegionItem[] = [
+  {
+    id: 'reg-alx',
+    name: 'الإسكندرية',
+    status: 'نشط',
+    description: 'قطاع الإسكندرية الكبرى وموانئ الدخيلة والإسكندرية والمناطق الصناعية ببرج العرب والعامرية',
+    color: 'blue',
+  },
+  {
+    id: 'reg-nst',
+    name: 'الساحل الشمالي',
+    status: 'نشط',
+    description: 'قطاع الساحل الشمالي والعلمين الجديدة وقرى مارينا وسيدي عبد الرحمن ورأس الحكمة والضبعة',
+    color: 'amber',
+  },
+  {
+    id: 'reg-bhr',
+    name: 'البحيرة',
+    status: 'نشط',
+    description: 'قطاع محافظة البحيرة ومراكز دمنهور وكفر الدوار وأبو المطامير وإدكو ووادي النطرون',
+    color: 'emerald',
+  },
+  {
+    id: 'reg-mix-1',
+    name: 'خط مشترك (إسكندرية - بحيرة)',
+    status: 'نشط',
+    description: 'خطوط التوريد المشتركة بين مصانع الإسكندرية ومستودعات دمنهور وكفر الدوار',
+    color: 'purple',
+  },
+  {
+    id: 'reg-mix-2',
+    name: 'خط مشترك (إسكندرية - الساحل)',
+    status: 'نشط',
+    description: 'خطوط الإمداد السريع لقرى ومشروعات الساحل الشمالي والعلمين ورأس الحكمة',
+    color: 'teal',
+  },
+];
+
+export const INITIAL_FUEL: FuelRecord[] = [
+  {
+    id: 'fuel-1',
+    date: '2026-09-06',
+    vehicleId: 'veh-1',
+    driverId: 'drv-1',
+    quantity: 110,
+    price: 13.5,
+    totalCost: 1485,
+    odometer: 64800,
+    station: 'محطة وطنية - الكيلو 21 الصحراوي',
+    notes: 'تموين كامل قبل رحلة الساحل الشمالي',
+    createdAt: '2026-09-06T08:30:00Z',
+    syncStatus: 'synced',
+  },
+  {
+    id: 'fuel-2',
+    date: '2026-09-05',
+    vehicleId: 'veh-2',
+    driverId: 'drv-2',
+    quantity: 65,
+    price: 13.5,
+    totalCost: 877.5,
+    odometer: 82300,
+    station: 'مصر للبترول - مدخل برج العرب',
+    notes: 'تموين صندوق التبريد وتغذية الفريزر',
+    createdAt: '2026-09-05T09:15:00Z',
+    syncStatus: 'synced',
+  },
+  {
+    id: 'fuel-3',
+    date: '2026-09-04',
+    vehicleId: 'veh-3',
+    driverId: 'drv-3',
+    quantity: 55,
+    price: 15.25,
+    totalCost: 838.75,
+    odometer: 45580,
+    station: 'موبيل - طريق دمنهور السريع',
+    notes: 'بنزين 92 لسيارة ورديات المصنع',
+    createdAt: '2026-09-04T07:00:00Z',
+    syncStatus: 'synced',
+  },
+  {
+    id: 'fuel-4',
+    date: '2026-09-03',
+    vehicleId: 'veh-4',
+    driverId: 'drv-4',
+    quantity: 320,
+    price: 13.5,
+    totalCost: 4320,
+    odometer: 142000,
+    station: 'طاقة للغاز والبترول - بوابة ميناء الدخيلة',
+    notes: 'تموين كامل لتريلا نقل الحاويات',
+    createdAt: '2026-09-03T11:00:00Z',
+    syncStatus: 'synced',
+  },
+];
+
+export const INITIAL_EXPENSES: ExpenseRecord[] = [
+  {
+    id: 'exp-1',
+    date: '2026-09-06',
+    vehicleId: 'veh-1',
+    category: 'كارتات وبوابات',
+    amount: 120,
+    description: 'كارتة بوابة رسوم محور التعمير والساحل الدولي',
+    notes: 'إيصال رسمي',
+    createdAt: '2026-09-06T10:00:00Z',
+    syncStatus: 'synced',
+  },
+  {
+    id: 'exp-2',
+    date: '2026-09-05',
+    vehicleId: 'veh-2',
+    category: 'غسيل وتشحيم',
+    amount: 150,
+    description: 'غسيل وتعقيم صندوق التبريد الداخلي والخارجي',
+    notes: 'مغسلة أسطول برج العرب',
+    createdAt: '2026-09-05T14:00:00Z',
+    syncStatus: 'synced',
+  },
+  {
+    id: 'exp-3',
+    date: '2026-09-03',
+    vehicleId: 'veh-4',
+    category: 'كارتات وبوابات',
+    amount: 250,
+    description: 'ميزان بسكول ورسوم وزن ميناء الإسكندرية',
+    notes: 'إيصال وزن حمولة خام',
+    createdAt: '2026-09-03T12:30:00Z',
+    syncStatus: 'synced',
+  },
+];
+
+export const INITIAL_FUEL_RECORDS = INITIAL_FUEL;
+export const INITIAL_EXPENSE_RECORDS = INITIAL_EXPENSES;
+

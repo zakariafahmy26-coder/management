@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="50%" stop-color="#065f46" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="truckGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#6ee7b7" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Background rounded rect -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+  <!-- Subtle grid and route lines -->
+  <path d="M60 380 Q 200 320 256 360 T 452 320" fill="none" stroke="#10b981" stroke-width="4" stroke-opacity="0.3" stroke-dasharray="8 8" />
+  <path d="M100 420 Q 256 370 412 420" fill="none" stroke="#34d399" stroke-width="6" stroke-opacity="0.25" />
+
+  <!-- Factory silhouette subtle background -->
+  <path d="M120 280 L160 250 L160 280 L200 250 L200 280 L230 280 L230 330 L120 330 Z" fill="#047857" fill-opacity="0.4" />
+
+  <!-- Modern Truck Icon inside safe area -->
+  <g filter="url(#shadow)" transform="translate(10, -5)">
+    <!-- Trailer Body -->
+    <rect x="110" y="165" width="180" height="135" rx="14" fill="#ffffff" />
+    <!-- Factory lines inside trailer -->
+    <rect x="125" y="180" width="150" height="12" rx="6" fill="#10b981" fill-opacity="0.25" />
+    <path d="M140 265 L170 230 L170 265 L200 230 L200 265 L230 230 L230 265" fill="none" stroke="#059669" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="250" cy="210" r="14" fill="#10b981" />
+
+    <!-- Connector -->
+    <rect x="290" y="240" width="20" height="40" fill="#cbd5e1" />
+
+    <!-- Truck Cab -->
+    <path d="M305 185 L350 185 Q375 185 390 205 L415 242 Q425 255 425 272 L425 300 L305 300 Z" fill="url(#truckGrad)" />
+    <!-- Cab Window -->
+    <path d="M320 198 L355 198 Q368 198 376 210 L395 238 Q398 244 398 250 L320 250 Z" fill="#0f172a" />
+    <!-- Cab Headlight -->
+    <rect x="415" y="278" width="10" height="16" rx="4" fill="#fef08a" />
+
+    <!-- Wheels -->
+    <circle cx="160" cy="305" r="28" fill="#1e293b" stroke="#ffffff" stroke-width="6" />
+    <circle cx="160" cy="305" r="12" fill="#94a3b8" />
+
+    <circle cx="240" cy="305" r="28" fill="#1e293b" stroke="#ffffff" stroke-width="6" />
+    <circle cx="240" cy="305" r="12" fill="#94a3b8" />
+
+    <circle cx="370" cy="305" r="28" fill="#1e293b" stroke="#ffffff" stroke-width="6" />
+    <circle cx="370" cy="305" r="12" fill="#94a3b8" />
+  </g>
+
+  <!-- Location Pin badge with navigation arrow at top right -->
+  <g transform="translate(350, 70)" filter="url(#shadow)">
+    <path d="M40 0 C17.9 0 0 17.9 0 40 C0 70 40 105 40 105 C40 105 80 70 80 40 C80 17.9 62.1 0 40 0 Z" fill="#10b981" stroke="#ffffff" stroke-width="4" />
+    <circle cx="40" cy="40" r="16" fill="#ffffff" />
+    <path d="M40 30 L48 48 L40 43 L32 48 Z" fill="#065f46" />
+  </g>
+
+  <!-- Fast navigation dot accents -->
+  <circle cx="95" cy="140" r="8" fill="#34d399" />
+  <circle cx="75" cy="170" r="5" fill="#34d399" fill-opacity="0.6" />
+</svg>
